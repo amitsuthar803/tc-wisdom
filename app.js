@@ -19,13 +19,18 @@ container.addEventListener("scroll", () => {
   window.clearTimeout(isScrolling);
   isScrolling = setTimeout(() => {
     snapToSection();
-  }, 20); // Reduced delay for quicker snap
+  }, 150); // Reduced delay for quicker snap
 });
 
 // app.js
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector(".container");
   const fixedHeading = document.querySelector(".fixed-heading");
+
+  container.scrollTo({
+    top: targetScroll,
+    behavior: "smooth", // Smooth snapping
+  });
 
   function updateHeadingRotation() {
     const section2 = document.querySelector(".section2");
